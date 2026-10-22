@@ -1,6 +1,5 @@
 import sys
 from concurrent.futures import ThreadPoolExecutor
-
 lazy import hashlib  # PEP 810: loaded on first use, not at startup
 
 
@@ -13,4 +12,5 @@ def main() -> None:
     with ThreadPoolExecutor() as pool:
         digests = list(pool.map(work, range(8)))
     print(f"Python {sys.version.split()[0]}, GIL {'on' if gil else 'off'}: {digests}")
-    assert not gil, "expected the free-threaded build (3.15t)"
+    if gil:  # not an assert: python -O would strip it
+        raise SystemExit("expected the free-threaded build (3.15t)")

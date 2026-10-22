@@ -1,12 +1,16 @@
 [project]
 name = "py315-lab"
 version = "0.1.0"
-description = "Add your description here"
+description = "Python 3.15 free-threaded + lazy import experiments"
 authors = [
     { name = "Rationis Labs", email = "25407388+rationislabs@users.noreply.github.com" }
 ]
 requires-python = ">=3.15"
 dependencies = []
+
+[dependency-groups]
+# ruff 0.15 cannot parse `lazy import` (invalid-syntax); 0.17.1 can.
+dev = ["ruff==0.17.1"]
 
 [project.scripts]
 py315-lab = "py315_lab:main"
