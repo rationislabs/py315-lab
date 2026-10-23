@@ -1,7 +1,7 @@
 [project]
-name = "py315-lab"
+name = "free-threading"
 version = "0.1.0"
-description = "Python 3.15 free-threaded + lazy import experiments"
+description = "Threads without the GIL on Python 3.15t, plus a PEP 810 lazy import"
 authors = [
     { name = "Rationis Labs", email = "25407388+rationislabs@users.noreply.github.com" }
 ]
@@ -10,10 +10,10 @@ dependencies = []
 
 [dependency-groups]
 # ruff 0.15 cannot parse `lazy import` (invalid-syntax); 0.17.1 can.
-dev = ["ruff==0.17.1"]
+dev = ["ruff==0.17.1", "pytest>=9.1"]
 
 [project.scripts]
-py315-lab = "py315_lab:main"
+free-threading = "free_threading:main"
 
 [build-system]
 requires = ["uv_build>=0.13.1,<0.14.0"]
